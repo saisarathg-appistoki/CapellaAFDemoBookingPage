@@ -7,14 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #B8965A; --gold-light: #D4AF7A; --gold-pale: #F5EDD9;
-    --dark: #1A1A18; --dark-2: #242420; --dark-3: #2E2E2A;
-    --mid: #5C5C56; --white: #FAF8F4; --border: #D8D2C4;
-    --green: #2A6B4A; --green-light: #E6F2EC;
-    --blue: #1E3A5F; --blue-light: #E6EDF5;
+    --gold: #B8965A;
+    --gold-light: #D4AF7A;
+    --gold-pale: #F5EDD9;
+    --dark: #1A1A18;
+    --dark-2: #242420;
+    --dark-3: #2E2E2A;
+    --mid: #5C5C56;
+    --light: #E8E4DC;
+    --white: #FAF8F4;
+    --border: #D8D2C4;
+    --green: #2A6B4A;
+    --green-light: #E6F2EC;
+    --blue: #1E3A5F;
+    --blue-light: #E6EDF5;
     --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);
     --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 12px 32px rgba(0,0,0,0.12);
-    --radius: 6px; --radius-lg: 10px;
+    --radius: 6px;
+    --radius-lg: 10px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: #F0EDE6; color: var(--dark); min-height: 100vh; font-size: 13px; }
@@ -23,16 +33,23 @@
   .topnav {
     background: var(--dark); height: 48px;
     display: flex; align-items: center; padding: 0 24px; gap: 20px;
-    position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--dark-3);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid var(--dark-3);
   }
-  .topnav-brand { display: flex; align-items: center; gap: 12px; }
+  .topnav-brand {
+    display: flex; align-items: center; gap: 12px;
+  }
   .brand-mark {
-    width: 28px; height: 28px; border: 1px solid var(--gold); border-radius: 50%;
+    width: 28px; height: 28px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px; color: var(--gold); font-weight: 500;
   }
   .brand-name {
-    font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-weight: 500;
     color: var(--gold-light); letter-spacing: 0.14em; text-transform: uppercase;
   }
   .topnav-divider { width: 1px; height: 22px; background: var(--dark-3); }
@@ -57,7 +74,7 @@
   .breadcrumb-sep { color: #333; }
 
   /* LAYOUT */
-  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 78px); }
+  .layout { display: grid; grid-template-columns: 272px 1fr; min-height: calc(100vh - 78px); }
 
   /* SIDEBAR */
   .sidebar {
@@ -65,7 +82,9 @@
     position: sticky; top: 78px; height: calc(100vh - 78px);
     overflow-y: auto; display: flex; flex-direction: column;
   }
-  .sidebar-guest { padding: 20px 20px 16px; border-bottom: 1px solid var(--border); }
+  .sidebar-guest {
+    padding: 20px 20px 16px; border-bottom: 1px solid var(--border);
+  }
   .sidebar-section-label {
     font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--mid); margin-bottom: 14px;
@@ -73,13 +92,17 @@
   .guest-avatar {
     width: 46px; height: 46px;
     background: linear-gradient(135deg, #8B6840, var(--gold-light));
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif; font-size: 18px; color: white; font-weight: 600;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: white; font-weight: 600;
     margin-bottom: 10px; transition: all 0.4s;
   }
   .guest-name {
-    font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500;
-    color: var(--dark); min-height: 28px; transition: all 0.4s; line-height: 1.2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 500; color: var(--dark);
+    min-height: 28px; transition: all 0.4s;
+    line-height: 1.2;
   }
   .guest-ref {
     font-size: 11px; color: var(--gold); font-weight: 500;
@@ -87,19 +110,20 @@
   }
   .guest-meta { margin-top: 14px; display: flex; flex-direction: column; gap: 9px; }
   .meta-row { display: flex; align-items: flex-start; gap: 8px; }
-  .meta-label { font-size: 11px; color: var(--mid); width: 62px; flex-shrink: 0; padding-top: 1px; }
-  .meta-value { font-size: 12px; color: var(--dark); min-height: 16px; transition: all 0.4s; word-break: break-all; }
-  .meta-value.email { font-size: 11px; color: var(--blue); }
+  .meta-label { font-size: 11px; color: var(--mid); width: 58px; flex-shrink: 0; padding-top: 1px; }
+  .meta-value { font-size: 12px; color: var(--dark); min-height: 16px; transition: all 0.4s; }
 
   /* SIDEBAR NAV */
   .sidebar-nav { padding: 8px 0; border-bottom: 1px solid var(--border); }
   .nav-group-label {
     font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #BBBBB0; padding: 8px 20px 4px;
+    text-transform: uppercase; color: #BBBBB0;
+    padding: 8px 20px 4px;
   }
   .nav-item {
     display: flex; align-items: center; gap: 10px;
-    padding: 9px 20px; cursor: pointer; transition: background 0.12s; position: relative;
+    padding: 9px 20px; cursor: pointer;
+    transition: background 0.12s; position: relative;
   }
   .nav-item:hover { background: #F5F2EC; }
   .nav-item.active { background: var(--gold-pale); }
@@ -107,7 +131,10 @@
     content: ''; position: absolute; left: 0; top: 0; bottom: 0;
     width: 3px; background: var(--gold); border-radius: 0 2px 2px 0;
   }
-  .nav-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+  .nav-icon {
+    width: 22px; height: 22px; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;
+  }
   .nav-label { font-size: 12px; color: var(--dark); flex: 1; }
   .nav-badge {
     font-size: 10px; background: var(--gold); color: white;
@@ -122,7 +149,11 @@
     background: var(--dark); border-radius: var(--radius);
     padding: 14px 16px; display: flex; align-items: center; gap: 14px;
   }
-  .stay-nights { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--gold-light); font-weight: 300; line-height: 1; min-width: 36px; text-align: center; transition: all 0.4s; }
+  .stay-nights {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; color: var(--gold-light); font-weight: 300;
+    line-height: 1; min-width: 36px; text-align: center; transition: all 0.4s;
+  }
   .stay-detail .stay-label { font-size: 13px; color: #ccc; font-weight: 300; }
   .stay-detail .stay-sub { font-size: 11px; color: #666; margin-top: 2px; }
 
@@ -134,18 +165,21 @@
   .page-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; letter-spacing: 0.02em; }
   .page-subtitle { font-size: 12px; color: var(--mid); margin-top: 3px; }
   .header-btn {
-    display: flex; align-items: center; gap: 6px; padding: 8px 16px;
-    border-radius: var(--radius); font-size: 12px; font-family: 'DM Sans', sans-serif;
-    cursor: pointer; border: 1px solid var(--border); background: white; color: var(--dark);
-    font-weight: 400; transition: all 0.15s;
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 16px; border-radius: var(--radius);
+    font-size: 12px; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; border: 1px solid var(--border);
+    background: white; color: var(--dark); font-weight: 400;
+    transition: all 0.15s;
   }
   .header-btn:hover { background: #F5F2EC; border-color: #C8C2B4; }
 
   /* SUMMARY STRIP */
   .summary-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .summary-card {
-    background: white; border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
     box-shadow: var(--shadow); transition: box-shadow 0.2s;
   }
   .summary-card:hover { box-shadow: var(--shadow-hover); }
@@ -168,23 +202,22 @@
   .section-badge { font-size: 10px; padding: 3px 9px; border-radius: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; display: none; }
   .badge-confirmed { background: var(--green-light); color: var(--green); }
 
-  /* DYNAMIC TABLE */
+  /* TABLE */
   .section-table { width: 100%; border-collapse: collapse; }
   .section-table thead th {
     padding: 9px 20px; text-align: left; font-size: 10px;
     font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--mid); background: #F8F6F2; border-bottom: 1px solid var(--border);
-    white-space: nowrap;
   }
   .section-table tbody tr { border-bottom: 1px solid #F0EDE6; transition: background 0.12s; }
   .section-table tbody tr:last-child { border-bottom: none; }
   .section-table tbody tr:hover { background: #FDFCFA; }
-  .section-table tbody td { padding: 12px 20px; font-size: 12px; vertical-align: middle; max-width: 260px; }
+  .section-table tbody td { padding: 12px 20px; font-size: 12px; vertical-align: middle; }
   .cell-primary { font-weight: 500; color: var(--dark); }
-  .cell-val { color: var(--dark); }
-  .cell-empty { color: #D0CCC4; }
-  .cell-tag { display: inline-flex; align-items: center; background: var(--gold-pale); color: #7A5C2E; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 500; white-space: nowrap; }
-  .cell-note { font-size: 11px; background: var(--blue-light); color: var(--blue); padding: 2px 8px; border-radius: 4px; display: inline-block; max-width: 240px; word-break: break-word; }
+  .cell-secondary { font-size: 11px; color: var(--mid); margin-top: 2px; }
+  .cell-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--gold-pale); color: #7A5C2E; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 500; white-space: nowrap; }
+  .cell-note { font-size: 11px; background: var(--blue-light); color: var(--blue); padding: 2px 8px; border-radius: 4px; display: inline-block; }
+  .cell-compl { font-size: 11px; background: var(--green-light); color: var(--green); padding: 2px 8px; border-radius: 4px; display: inline-block; }
 
   /* EMPTY STATE */
   .empty-state { padding: 36px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 7px; }
@@ -249,6 +282,8 @@
 </div>
 
 <div class="layout">
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-guest">
       <div class="sidebar-section-label">Guest Profile</div>
@@ -256,10 +291,6 @@
       <div class="guest-name" id="guestName">Awaiting booking...</div>
       <div class="guest-ref" id="guestRef">—</div>
       <div class="guest-meta">
-        <div class="meta-row">
-          <div class="meta-label">Email</div>
-          <div class="meta-value email" id="metaEmail">—</div>
-        </div>
         <div class="meta-row">
           <div class="meta-label">Check-in</div>
           <div class="meta-value" id="metaCheckIn">—</div>
@@ -310,7 +341,9 @@
     </div>
   </aside>
 
+  <!-- MAIN -->
   <main class="main">
+
     <div class="page-header">
       <div>
         <div class="page-title">Group Itinerary</div>
@@ -319,6 +352,7 @@
       <button class="header-btn" onclick="window.print()">⬇ &nbsp;Export PDF</button>
     </div>
 
+    <!-- SUMMARY -->
     <div class="summary-strip">
       <div class="summary-card">
         <div class="summary-icon" style="background:#EEF4FF;">🏨</div>
@@ -338,6 +372,7 @@
       </div>
     </div>
 
+    <!-- ROOMS -->
     <div class="section-card" id="rooms">
       <div class="section-header">
         <div class="section-icon" style="background:#EEF4FF;">🏨</div>
@@ -348,6 +383,7 @@
       <div id="roomsBody"></div>
     </div>
 
+    <!-- SPA -->
     <div class="section-card" id="spa">
       <div class="section-header">
         <div class="section-icon" style="background:#EFF8F3;">🌿</div>
@@ -358,6 +394,7 @@
       <div id="spaBody"></div>
     </div>
 
+    <!-- DINING -->
     <div class="section-card" id="dining">
       <div class="section-header">
         <div class="section-icon" style="background:#FEF4EC;">🍽</div>
@@ -368,6 +405,7 @@
       <div id="diningBody"></div>
     </div>
 
+    <!-- EXPERIENCES -->
     <div class="section-card" id="experiences">
       <div class="section-header">
         <div class="section-icon" style="background:#FDF0F0;">✨</div>
@@ -377,36 +415,25 @@
       </div>
       <div id="expBody"></div>
     </div>
+
   </main>
 </div>
 
 <div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-  // ── CONFIGURATION — replace these two values ──────────────────────────
-  const BIN_URL = 'https://api.jsonbin.io/v3/b/YOUR_BIN_ID/latest';
-  const API_KEY = 'YOUR_MASTER_KEY';
+  // ── CONFIGURATION — replace these two values ─────────────────────────
+  const BIN_URL = 'https://api.jsonbin.io/v3/b/6a1ff4dfda38895dfe7ffb78';
+  const API_KEY = '$2a$10$XjQ/s92LtvKRH2iT3OHCl.HK3OG6/3TFLinap4jPA0JIWPcY8tRUS';
   // ─────────────────────────────────────────────────────────────────────
 
   const POLL_MS = 4000;
   let lastHash = '';
-  let prevData = {
-    guest_profile: {},
-    accommodation_details: [],
-    wellness_activities: [],
-    culinary_reservations: [],
-    leisure_experiences: []
-  };
+  let prevData = { rooms_component: [], spa_component: [], dining_component: [], experiences_component: [] };
 
-  const SECTIONS = [
-    { dataKey: 'accommodation_details', bodyId: 'roomsBody', cardId: 'rooms',       countId: 'roomsCount', badgeId: 'roomsBadge', navId: 'navRooms', sumId: 'sumRooms', unit: 'room',        icon: '🏨', emptyText: 'No rooms booked yet',           emptySub: 'Room details will appear here once confirmed' },
-    { dataKey: 'wellness_activities',   bodyId: 'spaBody',   cardId: 'spa',         countId: 'spaCount',   badgeId: 'spaBadge',   navId: 'navSpa',   sumId: 'sumSpa',   unit: 'treatment',   icon: '🌿', emptyText: 'No spa treatments booked yet',    emptySub: 'Spa reservations will appear here once confirmed' },
-    { dataKey: 'culinary_reservations', bodyId: 'diningBody',cardId: 'dining',      countId: 'diningCount',badgeId: 'diningBadge',navId: 'navDining',sumId: 'sumDining',unit: 'reservation', icon: '🍽', emptyText: 'No dining reservations yet',      emptySub: 'Restaurant bookings will appear here once confirmed' },
-    { dataKey: 'leisure_experiences',   bodyId: 'expBody',   cardId: 'experiences', countId: 'expCount',   badgeId: 'expBadge',   navId: 'navExp',   sumId: 'sumExp',   unit: 'experience',  icon: '✨', emptyText: 'No experiences booked yet',       emptySub: 'Curated experiences will appear here once confirmed' },
-  ];
-
+  // Boot
   window.addEventListener('DOMContentLoaded', () => {
-    SECTIONS.forEach(s => renderSection(s, [], []));
+    renderAll(prevData);  // render empty states immediately
     fetchData();
     setInterval(fetchData, POLL_MS);
   });
@@ -440,36 +467,81 @@
     t.textContent = ok ? 'Live' : 'Reconnecting...';
   }
 
+  // ── MASTER RENDER ─────────────────────────────────────────────────────
   function renderAll(data) {
-    updateGuestPanel(data.guest_profile || {});
-    SECTIONS.forEach(s => {
-      const curr = data[s.dataKey] || [];
-      const prev = prevData[s.dataKey] || [];
-      const changed = JSON.stringify(curr) !== JSON.stringify(prev);
-      renderSection(s, curr, prev, changed);
-      document.getElementById(s.sumId).textContent = curr.length || '—';
-      if (changed && curr.length) toast(s.icon, toTitleCase(s.dataKey.replace(/_/g,' ')) + ' updated');
-    });
+    const gi = data.guest_info || {};
+    updateGuestPanel(gi);
+
+    const rooms = data.rooms_component || [];
+    const spa   = data.spa_component   || [];
+    const dining= data.dining_component|| [];
+    const exp   = data.experiences_component || [];
+
+    const changed = {
+      rooms:  JSON.stringify(rooms)  !== JSON.stringify(prevData.rooms_component  || []),
+      spa:    JSON.stringify(spa)    !== JSON.stringify(prevData.spa_component    || []),
+      dining: JSON.stringify(dining) !== JSON.stringify(prevData.dining_component || []),
+      exp:    JSON.stringify(exp)    !== JSON.stringify(prevData.experiences_component || []),
+    };
+
+    renderSection('rooms',   rooms,  renderRoomsTable,  'roomsCount',  'roomsBadge',  'navRooms',  'sumRooms',  'room',        changed.rooms);
+    renderSection('spa',     spa,    renderSpaTable,    'spaCount',    'spaBadge',    'navSpa',    'sumSpa',    'treatment',   changed.spa);
+    renderSection('dining',  dining, renderDiningTable, 'diningCount', 'diningBadge', 'navDining', 'sumDining', 'reservation', changed.dining);
+    renderSection('exp',     exp,    renderExpTable,    'expCount',    'expBadge',    'navExp',    'sumExp',    'experience',  changed.exp);
+
+    // summary totals
+    document.getElementById('sumRooms').textContent  = rooms.length  || '—';
+    document.getElementById('sumSpa').textContent    = spa.length    || '—';
+    document.getElementById('sumDining').textContent = dining.length || '—';
+    document.getElementById('sumExp').textContent    = exp.length    || '—';
+
+    // toast only when something changed and has items
+    if (changed.rooms  && rooms.length)  toast('🏨', 'Accommodation updated');
+    if (changed.spa    && spa.length)    toast('🌿', 'Spa treatments updated');
+    if (changed.dining && dining.length) toast('🍽', 'Dining reservations updated');
+    if (changed.exp    && exp.length)    toast('✨', 'Experiences updated');
   }
 
-  // ── GUEST PANEL ────────────────────────────────────────────────────────
+  function renderSection(key, items, tableRenderer, countId, badgeId, navId, sumId, unit, changed) {
+    const bodyId  = key === 'exp' ? 'expBody' : key + 'Body';
+    const cardId  = key === 'exp' ? 'experiences' : key;
+    const bodyEl  = document.getElementById(bodyId);
+    const countEl = document.getElementById(countId);
+    const badgeEl = document.getElementById(badgeId);
+    const navEl   = document.getElementById(navId);
+
+    const n = items.length;
+    countEl.textContent = n + ' ' + unit + (n !== 1 ? 's' : '');
+
+    if (n === 0) {
+      badgeEl.style.display = 'none';
+      navEl.classList.remove('show');
+      bodyEl.innerHTML = emptyHTML(key);
+      return;
+    }
+
+    badgeEl.style.display = '';
+    navEl.textContent = n;
+    navEl.classList.add('show');
+
+    if (changed) {
+      bodyEl.innerHTML = tableRenderer(items);
+      pulse(cardId);
+    }
+  }
+
+  // ── GUEST PANEL ───────────────────────────────────────────────────────
   function updateGuestPanel(gi) {
-    const name = gi.primary_guest || gi.guest_name || '';
-    const ref  = gi.reservation_id || gi.booking_reference || '';
-    const email = gi.email || '';
-    const cin  = gi.arrival_date  || gi.check_in  || '';
-    const cout = gi.departure_date || gi.check_out || '';
+    const name = gi.guest_name || '';
+    const ref  = gi.booking_reference || '';
+    document.getElementById('guestName').textContent   = name || 'Awaiting booking...';
+    document.getElementById('guestRef').textContent    = ref  || '—';
+    document.getElementById('breadcrumbRef').textContent = ref || '—';
+    document.getElementById('metaCheckIn').textContent  = gi.check_in  || '—';
+    document.getElementById('metaCheckOut').textContent = gi.check_out || '—';
+    document.getElementById('guestAvatar').textContent  = name ? name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase() : '?';
 
-    document.getElementById('guestName').textContent    = name  || 'Awaiting booking...';
-    document.getElementById('guestRef').textContent     = ref   || '—';
-    document.getElementById('metaEmail').textContent    = email || '—';
-    document.getElementById('metaCheckIn').textContent  = cin   || '—';
-    document.getElementById('metaCheckOut').textContent = cout  || '—';
-    document.getElementById('breadcrumbRef').textContent = ref  || '—';
-    document.getElementById('guestAvatar').textContent  =
-      name ? name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase() : '?';
-
-    const nights = calcNights(cin, cout);
+    const nights = calcNights(gi.check_in, gi.check_out);
     document.getElementById('metaNights').textContent = nights ? nights + ' nights' : '—';
     document.getElementById('nightsNum').textContent  = nights || '—';
   }
@@ -488,133 +560,87 @@
     return diff > 0 ? diff : null;
   }
 
-  // ── DYNAMIC SECTION RENDER ─────────────────────────────────────────────
-  function renderSection(s, items, prevItems, changed) {
-    const bodyEl  = document.getElementById(s.bodyId);
-    const countEl = document.getElementById(s.countId);
-    const badgeEl = document.getElementById(s.badgeId);
-    const navEl   = document.getElementById(s.navId);
-    const n = items.length;
-
-    countEl.textContent = n + ' ' + s.unit + (n !== 1 ? 's' : '');
-
-    if (n === 0) {
-      badgeEl.style.display = 'none';
-      navEl.classList.remove('show');
-      bodyEl.innerHTML = emptyHTML(s);
-      return;
-    }
-
-    badgeEl.style.display = '';
-    navEl.textContent = n;
-    navEl.classList.add('show');
-
-    if (changed !== false) {
-      bodyEl.innerHTML = buildDynamicTable(items);
-      pulse(s.cardId);
-    }
-  }
-
-  // ── DYNAMIC TABLE BUILDER ──────────────────────────────────────────────
-  function buildDynamicTable(items) {
-    if (!items || items.length === 0) return '';
-
-    // Collect all unique keys across all rows (preserving insertion order)
-    const keySet = [];
-    items.forEach(item => {
-      Object.keys(item).forEach(k => {
-        if (!keySet.includes(k)) keySet.push(k);
-      });
-    });
-
-    // Determine which keys are "primary" (first key) vs regular
-    const primaryKey = keySet[0];
-
-    const headers = keySet.map(k =>
-      `<th>${toTitleCase(k.replace(/_/g,' '))}</th>`
-    ).join('');
-
-    const rows = items.map(item => {
-      const cells = keySet.map((k, i) => {
-        const val = item[k];
-        const display = formatCellValue(val, k, i === 0);
-        return `<td>${display}</td>`;
-      }).join('');
-      return `<tr class="row-new">${cells}</tr>`;
-    }).join('');
-
+  // ── TABLE RENDERERS ───────────────────────────────────────────────────
+  function renderRoomsTable(rows) {
     return `<table class="section-table">
-      <thead><tr>${headers}</tr></thead>
-      <tbody>${rows}</tbody>
+      <thead><tr>
+        <th>Room Type</th><th>Dates</th><th>Qty</th><th>Bed Preference</th><th>Notes</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `<tr class="row-new">
+        <td><div class="cell-primary">${esc(r.type||'—')}</div></td>
+        <td><div class="cell-secondary">${esc(r.dates||'—')}</div></td>
+        <td><span class="cell-tag">${esc(String(r.quantity||1))} rm</span></td>
+        <td>${esc(r.bed||'—')}</td>
+        <td>${r.notes ? `<span class="cell-note">${esc(r.notes)}</span>` : dash()}</td>
+      </tr>`).join('')}</tbody>
     </table>`;
   }
 
-  // ── CELL VALUE FORMATTER ───────────────────────────────────────────────
-  function formatCellValue(val, key, isPrimary) {
-    // Empty / null / undefined
-    if (val === null || val === undefined || val === '') {
-      return '<span class="cell-empty">—</span>';
-    }
-
-    const str = String(val).trim();
-    if (str === '') return '<span class="cell-empty">—</span>';
-
-    const keyLower = key.toLowerCase();
-
-    // Boolean-like
-    if (typeof val === 'boolean') {
-      return val
-        ? '<span style="color:#2A6B4A; font-size:13px;">✓</span>'
-        : '<span class="cell-empty">—</span>';
-    }
-
-    // Number that looks like a count or quantity
-    if (typeof val === 'number' && (keyLower.includes('count') || keyLower.includes('quantity') || keyLower.includes('size') || keyLower.includes('attendees') || keyLower.includes('participant'))) {
-      return `<span class="cell-tag">${str}</span>`;
-    }
-
-    // Time fields
-    if (keyLower.includes('time') || keyLower.includes('hour')) {
-      return `<span class="cell-tag">⏱ ${esc(str)}</span>`;
-    }
-
-    // Price / cost fields
-    if (keyLower.includes('price') || keyLower.includes('cost') || keyLower.includes('rate') || keyLower.includes('fee')) {
-      if (str.toLowerCase() === 'complimentary' || str === '0' || str === '0.0') {
-        return '<span style="background:#E6F2EC;color:#2A6B4A;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500;">Complimentary</span>';
-      }
-      return `<span class="cell-tag">${esc(str)}</span>`;
-    }
-
-    // Notes / remarks / requests / info — blue pill
-    if (keyLower.includes('note') || keyLower.includes('remark') || keyLower.includes('request') || keyLower.includes('info') || keyLower.includes('additional') || keyLower.includes('special')) {
-      return str === '—' || str === ''
-        ? '<span class="cell-empty">—</span>'
-        : `<span class="cell-note">${esc(str)}</span>`;
-    }
-
-    // Primary column (first key) — bold
-    if (isPrimary) {
-      return `<div class="cell-primary">${esc(str)}</div>`;
-    }
-
-    // Default
-    return `<span class="cell-val">${esc(str)}</span>`;
+  function renderSpaTable(rows) {
+    return `<table class="section-table">
+      <thead><tr>
+        <th>Treatment</th><th>Date</th><th>Time</th><th>Guests</th><th>Suite</th><th>Notes</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `<tr class="row-new">
+        <td><div class="cell-primary">${esc(r.treatment||'—')}</div></td>
+        <td>${esc(r.date||'—')}</td>
+        <td><span class="cell-tag">⏱ ${esc(r.time||'—')}</span></td>
+        <td>${esc(String(r.guests||1))} guest${(r.guests||1)>1?'s':''}</td>
+        <td>${esc(r.suite||'—')}</td>
+        <td>${r.notes ? `<span class="cell-note">${esc(r.notes)}</span>` : dash()}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
   }
 
-  // ── HELPERS ────────────────────────────────────────────────────────────
-  function toTitleCase(str) {
-    return str.replace(/\b\w/g, c => c.toUpperCase());
+  function renderDiningTable(rows) {
+    return `<table class="section-table">
+      <thead><tr>
+        <th>Venue</th><th>Date</th><th>Time</th><th>Guests</th><th>Seating</th><th>Notes</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `<tr class="row-new">
+        <td><div class="cell-primary">${esc(r.venue||'—')}</div></td>
+        <td>${esc(r.date||'—')}</td>
+        <td><span class="cell-tag">⏱ ${esc(r.time||'—')}</span></td>
+        <td>${esc(String(r.guests||'—'))} guests</td>
+        <td>${esc(r.seating||'—')}</td>
+        <td>${r.notes ? `<span class="cell-note">${esc(r.notes)}</span>` : dash()}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
   }
 
-  function emptyHTML(s) {
+  function renderExpTable(rows) {
+    return `<table class="section-table">
+      <thead><tr>
+        <th>Experience</th><th>Date</th><th>Time</th><th>Guests</th><th>Price</th><th>Notes</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `<tr class="row-new">
+        <td><div class="cell-primary">${esc(r.name||'—')}</div></td>
+        <td>${esc(r.date||'—')}</td>
+        <td><span class="cell-tag">⏱ ${esc(r.time||'—')}</span></td>
+        <td>${esc(String(r.guests||'—'))} guests</td>
+        <td>${r.price ? `<span class="cell-tag">${esc(r.price)}</span>` : `<span class="cell-compl">Complimentary</span>`}</td>
+        <td>${r.notes ? `<span class="cell-note">${esc(r.notes)}</span>` : dash()}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  }
+
+  // ── EMPTY STATES ──────────────────────────────────────────────────────
+  const emptyStates = {
+    rooms:  ['🏨', 'No rooms booked yet',           'Room details will appear here once confirmed'],
+    spa:    ['🌿', 'No spa treatments booked yet',   'Spa reservations will appear once confirmed'],
+    dining: ['🍽', 'No dining reservations yet',     'Restaurant bookings will appear once confirmed'],
+    exp:    ['✨', 'No experiences booked yet',       'Curated experiences will appear once confirmed'],
+  };
+  function emptyHTML(key) {
+    const [icon, text, sub] = emptyStates[key] || ['—','—','—'];
     return `<div class="empty-state fade-up">
-      <div class="empty-icon">${s.icon}</div>
-      <div class="empty-text">${s.emptyText}</div>
-      <div class="empty-sub">${s.emptySub}</div>
+      <div class="empty-icon">${icon}</div>
+      <div class="empty-text">${text}</div>
+      <div class="empty-sub">${sub}</div>
     </div>`;
   }
 
+  // ── HELPERS ───────────────────────────────────────────────────────────
   function pulse(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -630,10 +656,7 @@
     t.className = 'toast';
     t.innerHTML = `<span>${icon}</span><span>${msg}</span>`;
     wrap.appendChild(t);
-    setTimeout(() => {
-      t.style.opacity = '0'; t.style.transition = 'opacity 0.4s';
-      setTimeout(() => t.remove(), 400);
-    }, 3000);
+    setTimeout(() => { t.style.opacity='0'; t.style.transition='opacity 0.4s'; setTimeout(()=>t.remove(),400); }, 3000);
   }
 
   function scrollToSection(id, navEl) {
@@ -643,10 +666,9 @@
   }
 
   function esc(str) {
-    return String(str)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+  function dash() { return '<span style="color:#D0CCC4">—</span>'; }
 </script>
 </body>
 </html>
