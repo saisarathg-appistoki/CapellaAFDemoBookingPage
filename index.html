@@ -289,6 +289,7 @@
       <div class="sidebar-section-label">Guest Profile</div>
       <div class="guest-avatar" id="guestAvatar">?</div>
       <div class="guest-name" id="guestName">Awaiting booking...</div>
+      <div class="guest-email" id="guestEmail">Email</div>
       <div class="guest-ref" id="guestRef">—</div>
       <div class="guest-meta">
         <div class="meta-row">
@@ -533,8 +534,10 @@
   // ── GUEST PANEL ───────────────────────────────────────────────────────
   function updateGuestPanel(gi) {
     const name = gi.guest_name || '';
+    const email = gi.guest_email || '';
     const ref  = gi.booking_reference || '';
     document.getElementById('guestName').textContent   = name || 'Awaiting booking...';
+    document.getElementById('guestEmail').textContent   = email || 'Awaiting Email...';
     document.getElementById('guestRef').textContent    = ref  || '—';
     document.getElementById('breadcrumbRef').textContent = ref || '—';
     document.getElementById('metaCheckIn').textContent  = gi.check_in  || '—';
